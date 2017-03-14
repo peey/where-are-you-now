@@ -1,21 +1,24 @@
-function whereAreYouNow() {
+;(function ($, window) {
+
+// expose global
+whereAreYouNow = function () {
   $(".where-are-you-now").remove(); // remove elements from last call (if any)
   
   var $root = ((this != window) && $(this)) || $(document);
   
   function getQSFromElement(elm) {
-    return elm.tagName.toLowerCase() + (elm.id == ""? "" : "#" + elm.id)  + (elm.className == ""?  "" : "." + elm.className.replace(/ /g, "."))
+    $elm = $(elm);
+    return $elm.prop("tagName").toLowerCase() + ($(elm).attr("id")? "#" + $(elm).attr("id") : "")  + ($(elm).attr("class")? "." + $(elm).attr("class").replace(/\s+/g, ".") : "");
   }
   
-  f = getQSFromElement
-  
+  var fadedSelector = ":hidden:not(head):not(meta):not(title):not(style):not(script):not(link):not(noscript)";
   if (this != window) {
     var hiddenParentsAndSelf = $root.parents(":hidden").add($root.filter(":hidden"));
     hiddenParentsAndSelf.show();
-    var list = $root.find(":hidden:not(head):not(meta):not(title):not(style):not(script):not(link)");
+    var list = $root.find(fadedSelector);
     hiddenParentsAndSelf.hide();
   } else {
-    var list = $(":hidden:not(head):not(meta):not(title):not(style):not(script):not(link)");
+    var list = $(fadedSelector);
   }
   
   //filtered is the logic that filters out the children of matched hidden elements
@@ -75,3 +78,5 @@ $(document).ready(function () {
 })
 
 $.fn.whereAreYouNow = whereAreYouNow;
+
+})(jQuery, window);

@@ -1,6 +1,6 @@
 # Where Are You Now
 
-This is a useful UI debugging library to discover all the faded (`display:none`) elements on your page. 
+This is a useful UI debugging library to discover all the faded (`display:none`) elements on your page. See the following demo:  
 
 ![Demo GIF](demo.gif)
 
@@ -13,7 +13,7 @@ Make sure you've included jquery on your page. Simply download where-are-you-now
 <script src="path/to/where-are-you-now.js"></script>
 ```
 
-Open up console and type in `whereAreYouNow()` to get the yellow dialogs that point to where the elements' positions would be were they not hidden.
+Open up console and type in `whereAreYouNow()` to get the yellow dialogs that point to where the elements' positions would be were they not hidden. The function returns a jquery set of all the elements for which the dialogs are shown.
 
 To remove all the dialogs, just execute `$(".where-are-you-now").remove()` from the console. 
 
@@ -28,18 +28,17 @@ The library is also a jquery plugin, so if you want to see the dialogs for only 
 Include the following snippet on the page you want to debug but whose source you don't want to tinker around with:
 
 ```js
-	// if page has jquery
-	fetch('<insert rawgit here>')
-		.then(response => response.text())
-		.then(text => eval(text))
-
-	// if the page doesn't have jquery
+	// if the page doesn't have jquery, first load jquery
 	fetch('https://code.jquery.com/jquery-3.1.1.min.js')
 		.then(response => response.text())
 		.then(text => eval(text))
-		.then(x => fetch('<insert rawgit here>'))
+		.then(x => console.log("done"))
+
+	// after loading jquery
+	fetch('https://cdn.rawgit.com/peey/where-are-you-now/3fe3d781/where-are-you-now.js')
 		.then(response => response.text())
 		.then(text => eval(text))
+		.then(x => console.log("done"))
 ```
 
 ## License
