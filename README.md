@@ -7,7 +7,7 @@ This is a useful UI debugging library to discover all the faded (`display:none`)
 ## Usage
 
 ### In your own code
-Make sure you've included jquery on your page. Simply download where-are-you-now.js and add it via the following snippet
+Make sure you've included jquery on your page. Simply download `where-are-you-now.js` and add it via the following snippet
 
 ```html
 <script src="path/to/where-are-you-now.js"></script>
@@ -35,10 +35,12 @@ Include the following snippet on the page you want to debug but whose source you
 		.then(x => console.log("done"))
 
 	// after loading jquery
-	fetch('https://cdn.rawgit.com/peey/where-are-you-now/3fe3d781/where-are-you-now.js')
+	fetch('https://cdn.rawgit.com/peey/where-are-you-now/1d648597/where-are-you-now.js')
 		.then(response => response.text())
 		.then(text => eval(text))
 		.then(x => console.log("done"))
+
+	// If you get "Content Security" warnings, you have to go to the above two links and copy paste the js into console :( 
 ```
 
 ## License
