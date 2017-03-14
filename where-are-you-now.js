@@ -39,8 +39,8 @@ function whereAreYouNow() {
     hiddenParents.hide();
     
     pos = {
-      "left": pos.left += 10, //adjust for border width of pointer
-      "top": pos.top -= 15 // so that pointer points to the exact location
+      "left": pos.left + 10, //adjust for border width of pointer
+      "top": Math.max(0, pos.top - 15) // so that pointer points to the exact location
     }
     $("body").append($("<span class='where-are-you-now' style='display:none'>I'm faded (" + getQSFromElement(e) + ")</span>").css(pos));
   })
@@ -48,5 +48,30 @@ function whereAreYouNow() {
   $(".where-are-you-now").fadeIn(800)
   return $(filtered);
 }
+
+$(document).ready(function () {
+  var style = `
+    .where-are-you-now {
+      background: #ffffc1;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: absolute;
+    }
+    
+    .where-are-you-now:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent #ffffc1 transparent transparent;
+      top: 5px;
+      left: -20px;
+    }
+  `;
+
+  $("body").append(`<style>${style}</style>`);
+})
 
 $.fn.whereAreYouNow = whereAreYouNow;
