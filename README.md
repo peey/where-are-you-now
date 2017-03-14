@@ -4,7 +4,7 @@ This is a useful UI debugging library to discover all the faded (`display:none`)
 
 ![Demo GIF](demo.gif)
 
-If you aren't having a chuckle right now, you probably haven't heard (Faded by Alan Walker)[https://www.youtube.com/watch?v=60ItHLz5WEA]. But on a serious note, this library does work :D It's not *just* a joke.
+If you aren't having a chuckle right now, you probably haven't heard [Faded by Alan Walker](https://www.youtube.com/watch?v=60ItHLz5WEA). But on a serious note, this library does work :D It's not *just* a joke.
 
 ## Usage
 
