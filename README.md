@@ -4,6 +4,8 @@ This is a useful UI debugging library to discover all the faded (`display:none`)
 
 ![Demo GIF](demo.gif)
 
+If you aren't having a chuckle right now, you probably haven't heard (Faded by Alan Walker)[https://www.youtube.com/watch?v=60ItHLz5WEA]. But on a serious note, this library does work :D It's not *just* a joke.
+
 ## Usage
 
 ### In your own code
@@ -25,22 +27,22 @@ The library is also a jquery plugin, so if you want to see the dialogs for only 
 
 ### On other pages
 
-Include the following snippet on the page you want to debug but whose source you don't want to tinker around with:
+If you have a page you want to debug but whose source you don't want to tinker around with, then use the following snippets in console on to load the library on the page:
 
 ```js
-	// if the page doesn't have jquery, first load jquery
-	fetch('https://code.jquery.com/jquery-3.1.1.min.js')
-		.then(response => response.text())
-		.then(text => eval(text))
-		.then(x => console.log("done"))
+// if the page doesn't have jquery, first load jquery
+fetch('https://code.jquery.com/jquery-3.1.1.min.js')
+	.then(response => response.text())
+	.then(text => eval(text))
+	.then(x => console.log("done"))
 
-	// after loading jquery
-	fetch('https://cdn.rawgit.com/peey/where-are-you-now/1d648597/where-are-you-now.js')
-		.then(response => response.text())
-		.then(text => eval(text))
-		.then(x => console.log("done"))
+// after loading jquery
+fetch('https://cdn.rawgit.com/peey/where-are-you-now/1d648597/where-are-you-now.js')
+	.then(response => response.text())
+	.then(text => eval(text))
+	.then(x => console.log("done"))
 
-	// If you get "Content Security" warnings, you have to go to the above two links and copy paste the js into console :( 
+// If you get "Content Security" warnings, you have to go to the above two links and copy paste the js into console :( 
 ```
 
 ## License
